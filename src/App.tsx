@@ -25,7 +25,7 @@ export const App = () => {
 
       </C.Info>
       <C.GridArea>
-        ...
+        
       </C.GridArea>
     </C.Container>
   )
