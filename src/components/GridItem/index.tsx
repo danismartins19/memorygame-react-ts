@@ -15,7 +15,7 @@ export const GridItem = ({item, onClick}: Props) =>{
         showBackground={item.permanent || item.shown}
         onClick={onClick}>
            {!item.permanent && !item.shown &&
-                <C.Icon src= {b7svg} alt=""></C.Icon>
+                <C.Icon src= {b7svg} opacity={.1} alt=""></C.Icon>
            }
 
            {(item.permanent || item.shown )&& item.item !== null &&

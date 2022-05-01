@@ -14,7 +14,12 @@ export const Container = styled.div<ContainerProps>`
     cursor: pointer;
 `;
 
-export const Icon = styled.img`
+type IconProps ={
+    opacity?: number
+}
+
+export const Icon = styled.img<IconProps>`
     width: 40px;
     height: 40px;
+    opacity: ${props => props.opacity ?? 1}
 `;
