@@ -4,7 +4,7 @@ Este projeto foi desenvolvido usando Vite, React,JS, Typescript, Styled-Componen
 
 ## Deploy
 
-Se você quiser ver esse projeto hospedado é so clicar [aqui](http://localhost:3000).<br>Se divirta!
+Se você quiser ver esse projeto hospedado é so clicar [aqui](https://memorygame-rts.netlify.app/).<br>Se divirta!
 
 ## Scripts disponiveis:
 
