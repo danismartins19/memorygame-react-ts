@@ -2,6 +2,10 @@
 
 Este projeto foi desenvolvido usando Vite, React,JS, Typescript, Styled-Components.
 
+## Deploy
+
+Se você quiser ver esse projeto hospedado é so clicar [aqui](http://localhost:3000).<br>Se divirta!
+
 ## Scripts disponiveis:
 
 ## `npm install`
