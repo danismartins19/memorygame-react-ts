@@ -67,6 +67,14 @@ export const App = () => {
     }
   }, [shownCount, gridItems])
 
+
+  useEffect(() => {
+    if(moveCount > 0 && gridItems.every(item => item.permanent === true)){
+      setIsPlaying(false);
+    }
+  }, [moveCount, gridItems])
+
+
   const resetAndCreateGrid = () => {
     //step 1 - reset the game
     setTimeElapsed(0);
