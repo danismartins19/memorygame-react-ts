@@ -22,15 +22,50 @@ export const App = () => {
     resetAndCreateGrid();
   }, [])
 
-  useEffect(()=>{
-    const timer = setInterval(()=>{
-      if(isPlaying){
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (isPlaying) {
         setTimeElapsed(timeElapsed + 1);
       }
-    },1000);
+    }, 1000);
 
     return () => clearInterval(timer);
-  },[isPlaying, timeElapsed])
+  }, [isPlaying, timeElapsed])
+
+
+  //verificar se os itens ativos sao iguais
+  useEffect(() => {
+    if (shownCount === 2) {
+      let opened = gridItems.filter(item => item.shown === true);
+      if (opened.length === 2) {
+
+
+        if (opened[0].item === opened[1].item) {
+          let tmpGrid = [...gridItems];
+          for (let i in tmpGrid) {
+            if (tmpGrid[i].shown) {
+              tmpGrid[i].permanent = true;
+              tmpGrid[i].shown = false;
+            }
+          }
+          setGridItems(tmpGrid);
+          setShownCount(0);
+        }
+        else {
+          setTimeout(() => {
+            let tmpGrid = [...gridItems];
+            for (let i in tmpGrid) {
+              tmpGrid[i].shown = false;
+            }
+            setGridItems(tmpGrid);
+            setShownCount(0);
+          }, 1100)
+        }
+
+        setMoveCount(moveCount + 1);
+      }
+    }
+  }, [shownCount, gridItems])
 
   const resetAndCreateGrid = () => {
     //step 1 - reset the game
@@ -67,7 +102,15 @@ export const App = () => {
   }
 
   const handleItemClick = (index: number) => {
+    if (isPlaying && index !== null && shownCount < 2) {
+      let tmpGrid = [...gridItems];
 
+      if (tmpGrid[index].permanent === false && tmpGrid[index].shown === false) {
+        tmpGrid[index].shown = true;
+        setShownCount(shownCount + 1);
+      }
+      setGridItems(tmpGrid);
+    }
   }
 
 
@@ -80,7 +123,7 @@ export const App = () => {
 
         <C.InfoArea>
           <InfoItem label='Tempo' value={formatTimeElapsed(timeElapsed)}></InfoItem>
-          <InfoItem label='Movimentos' value='0'></InfoItem>
+          <InfoItem label='Movimentos' value={moveCount.toString()}></InfoItem>
         </C.InfoArea>
 
         <Button label='Reiniciar' icon={RestartIcon} onClick={resetAndCreateGrid}></Button>
