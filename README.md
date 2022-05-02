@@ -1,6 +1,6 @@
 # Jogo da memória
 
-Este projeto foi desenvolvido usando Vite, React,JS, Typescript, Styled-Components.
+Este projeto foi desenvolvido usando Vite, React.JS, TypeScript e Styled-Components, durante o curso de React.JS da plataforma [B7Web](https://b7web.com.br).
 
 ## Deploy
 
